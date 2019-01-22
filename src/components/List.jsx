@@ -20,18 +20,23 @@ class List extends React.Component {
     return elements;
   }
 
-  handleInputChanges(value) {
-    this.setState({ searchVal: value });
+  handleInputChanges(e) {
+    this.setState({ searchVal: e.target.value});
   }
 
   render() {
-    const { count } = this.state;
+    const { count, searchVal } = this.state;
     return (
       <div>
-        <input type="text" onClick={this.handleInputChanges} />
+        <input type="text" value={searchVal} placeHolder={'Type "Yes" to enable button'}onChange={this.handleInputChanges} style={{width: '300px'}}/>
         <div
           className='pump-it-button'
-          onClick={() => this.setState({ count: count + 1 })}
+          onClick={ () => {
+              if (searchVal.trim() === 'Yes') {
+                this.setState({ count: count + 1 })
+              }
+            }
+          }
         >
           Pump it UP
         </div>
