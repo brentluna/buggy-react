@@ -1,3 +1,6 @@
+## Broken React Code for seeing how someone goes about debugging it
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
