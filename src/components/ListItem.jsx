@@ -1,25 +1,12 @@
 import React from 'react';
 
-class ListItem extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      givenFoo: this.props.foo
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if(prevState.givenFoo !== this.props.foo) {
-      this.setState({givenFoo: this.props.foo})
-    }
-  }
-
+class ListItem extends React.PureComponent {
   render() {
-    const {givenFoo} = this.state;
+    const {foo} = this.props;
     return (
       <div>
         <div>
-          Given Foo: {givenFoo}
+          Given Foo: {foo}
         </div>
         <hr/>
       </div>
