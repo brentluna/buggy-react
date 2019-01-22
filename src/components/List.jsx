@@ -29,7 +29,8 @@ class List extends React.Component {
     return (
       <div>
         <input type='text' onClick={this.handleInputChanges}/>
-        <div onClick={this.setState({count: count + 1})}>Pump it UP</div>
+        <div class='pump-it-button' onClick={this.setState({count: count + 1})}>Pump it UP</div>
+        <hr/>
         {this.renderItems}
       </div>
     )
