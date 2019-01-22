@@ -19,11 +19,9 @@ class ListItem extends React.Component {
     return (
       <div>
         <div>
-          Given Foo:
+          Given Foo: {givenFoo}
         </div>
-        <div>
-          {givenFoo}
-        </div>
+        <hr/>
       </div>
     )
   }
