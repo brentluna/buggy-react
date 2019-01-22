@@ -15,11 +15,9 @@ class ListItem extends React.Component {
     const {givenFoo} = this.state;
     return (
       <div>
-        Given Foo:
+        {Given Foo: givenFoo}
       </div>
-      <div>
-        {givenFoo}
-      </div>
+      <hr/>
     )
   }
 }
