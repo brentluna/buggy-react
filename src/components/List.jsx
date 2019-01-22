@@ -28,8 +28,16 @@ class List extends React.Component {
     const {count} = this.state;
     return (
       <div>
-        <input type='text' onClick={this.handleInputChanges}/>
-        <div class='pump-it-button' onClick={this.setState({count: count + 1})}>Pump it UP</div>
+        <input type='text' placeHolder={'Type "Yes" to enable button'}onClick={this.handleInputChanges} style={{width: '300px'}}/>
+        <div class='pump-it-button'
+          onClick={
+            if (searchVal === 'Yes') {
+              this.setState({count: count + 1})
+            }
+          }
+        >
+          Pump it UP
+        </div>
         <hr/>
         {this.renderItems}
       </div>
