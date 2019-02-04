@@ -13,13 +13,14 @@ class ListItem extends React.Component {
 
   render() {
     const {givenFoo} = this.state;
+    console.log(givenFoo)
     return (
       <div>
-        {Given Foo: givenFoo}
+        {givenFoo}
+        <hr/>
       </div>
-      <hr/>
     )
   }
 }
 
-export ListItem;
+export default ListItem;
