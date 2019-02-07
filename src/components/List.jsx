@@ -3,10 +3,13 @@ import ListItem from './ListItem'
 
 class List extends React.Component {
   constructor(props) {
+    super(props);
     this.state = {
       count: 0,
       searchVal: ''
-    }
+    };
+    this.handleInputChanges = this.handleInputChanges.bind(this);
+    this.renderItems = this.renderItems.bind(this);
   }
 
   renderItems() {
@@ -21,26 +24,37 @@ class List extends React.Component {
   }
 
   handleInputChanges(value) {
-    this.setState({searchVal: value})}
+    this.setState({searchVal: value})
   }
 
   render() {
-    const {count} = this.state;
+    const {count, searchVal} = this.state;
+
+    const items = this.renderItems();
+
     return (
       <div>
-        <input type='text' placeHolder={'Type "Yes" to enable button'}onClick={this.handleInputChanges} style={{width: '300px'}}/>
+        <input
+          type='text'
+          placeHolder={'Type "Yes" to enable button'}
+          onClick={this.handleInputChanges}
+          style={{width: '300px'}}
+        />
         <div class='pump-it-button'
-          onClick={
+          onClick={() => {
+            console.log()
             if (searchVal === 'Yes') {
               this.setState({count: count + 1})
             }
-          }
+          }}
         >
           Pump it UP
         </div>
         <hr/>
-        {this.renderItems}
+        { items }
       </div>
     )
   }
 }
+
+export default List;
