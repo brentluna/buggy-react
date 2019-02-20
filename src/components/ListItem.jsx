@@ -2,24 +2,24 @@ import React from 'react';
 
 class ListItem extends React.Component {
   constructor(props){
-    this.state = {
-      givenFoo: this.props.foo
-    }
+    super(props);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    this.setState({givenFoo: this.props.foo})
+    // this.setState({givenFoo: this.props.foo})s
   }
 
   render() {
-    const {givenFoo} = this.state;
+    const {foo} = this.props;
     return (
-      <div>
-        {Given Foo: givenFoo}
-      </div>
-      <hr/>
+      <React.Fragment>
+        <div>
+          Given Foo: {foo}
+        </div>
+          <hr/>
+      </React.Fragment>
     )
   }
 }
 
-export ListItem;
+export default ListItem;

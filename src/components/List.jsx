@@ -1,12 +1,15 @@
 import React from 'react';
 import ListItem from './ListItem'
 
-class List extends React.Component {
+export default class List extends React.Component {
   constructor(props) {
+    super(props);
     this.state = {
       count: 0,
       searchVal: ''
     }
+
+    this.handleInputChanges = this.handleInputChanges.bind(this);
   }
 
   renderItems() {
@@ -20,26 +23,30 @@ class List extends React.Component {
     return elements;
   }
 
-  handleInputChanges(value) {
-    this.setState({searchVal: value})}
-  }
+  handleInputChanges(e) {
+    let value = e.target.value
+    console.log(value, this.state.searchVal);
+    this.setState({searchVal: value})
+  }s
 
   render() {
-    const {count} = this.state;
+    const {count, searchVal} = this.state;
     return (
       <div>
-        <input type='text' placeHolder={'Type "Yes" to enable button'}onClick={this.handleInputChanges} style={{width: '300px'}}/>
+        <input type='text' placeHolder={'Type "Yes" to enable button'}onChange={this.handleInputChanges} style={{width: '300px'}}/>
         <div class='pump-it-button'
           onClick={
-            if (searchVal === 'Yes') {
+           () => {
+            console.log(searchVal, count)
+            if (this.state.searchVal === 'Yes') {
               this.setState({count: count + 1})
             }
-          }
+          }}
         >
           Pump it UP
         </div>
         <hr/>
-        {this.renderItems}
+        {this.renderItems()}
       </div>
     )
   }
